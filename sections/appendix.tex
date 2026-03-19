@@ -108,7 +108,13 @@ Substituting this result into \cref{eq:proof_hess1} yields
     \overline{t}\Var{\FP_n}}{(\overline{t} + \overline{f})^3}
 \end{equation}
 By \cref{thm:fpbinom}, $\FP_n$ is binomially distributed with a mean $n \fprate$ and a variance $n \fprate \tnrate$ and by \cref{cor:tpbinom}, $\TP_p$ is binomially distributed with a mean $p \tprate$ and a variance $p \fnrate \tprate$.
-Substituting $\Var{\FP_n} = n \fprate(1-\fprate) = \overline{f}_p(1-\fprate) = \sigma_{f_p}^2$ and $\Var{\TP_p} = p \tprate(1-\tprate) = \overline{t}_p(1-\tprate) = \sigma_{t_p}^2$ completes the proof.
+Substituting $\Var{\FP_n} = n \fprate(1-\fprate) = \overline{f}(1-\fprate) = \sigma_f^2$ and $\Var{\TP_p} = p \tprate(1-\tprate) = \overline{t}(1-\tprate) = \sigma_t^2$ yields \cref{eq:approx_expected_precision}.
+
+For the variance, the first-order delta method gives $\Var{\PPV} \approx (\nabla f)^\intercal \Sigma\,(\nabla f)$ with $\Sigma = \operatorname{diag}(\sigma_t^2, \sigma_f^2)$:
+\begin{equation}
+    \Var{\PPV} \approx \frac{\overline{f}^{\,2}\,\sigma_t^2 + \overline{t}^{\,2}\,\sigma_f^2}{\left(\overline{t} + \overline{f}\right)^4},
+\end{equation}
+which yields \cref{eq:var_ppv}.
 \end{proof}
 
 \section{Proof of theorem~\ref{thm:f1_approx}}
